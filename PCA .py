@@ -60,9 +60,11 @@ for person_id in range(1, 7):
 
         # reshape to orginal dim
         im_tilde = x_tilde.reshape(116, 98)
+        #Tinh Reconstruction Error
         loss = np.sqrt(np.sum((im - im_tilde)**2))
         loss /= im.size
         print(loss)
+        #Ve hinh reconstruct
         plt.axis('on')
         f1 = plt.imshow(im_tilde, interpolation='nearest')
         f1.axes.get_xaxis().set_visible(False)
