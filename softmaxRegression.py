@@ -119,7 +119,7 @@ def pred(W, X):
 
 means = [[2, 2], [8, 3], [3, 6]]
 cov = [[1, 0], [0, 1]]
-N = 500
+N = 1000
 X0 = np.random.multivariate_normal(means[0], cov, N)
 X1 = np.random.multivariate_normal(means[1], cov, N)
 X2 = np.random.multivariate_normal(means[2], cov, N)
@@ -137,27 +137,27 @@ W = softmax_regression(X, original_label, W_init, eta)
 print(W[-1])
 
 # %reset
-import numpy as np 
-from mnist import MNIST
-import matplotlib.pyplot as plt
-from sklearn import linear_model
-from sklearn.metrics import accuracy_score
-
-mntrain = MNIST('D:\\Minh\\Python\\MNIST')
-mntrain.load_training()
-Xtrain = np.asarray(mntrain.train_images)/255.0
-ytrain = np.array(mntrain.train_labels.tolist())
-
-mntest = MNIST('D:\\Minh\\Python\\MNIST')
-mntest.load_testing()
-Xtest = np.asarray(mntest.test_images)/255.0
-ytest = np.array(mntest.test_labels.tolist())
-
-# train
-logreg = linear_model.LogisticRegression(C=1e5, 
-        solver = 'lbfgs', multi_class = 'multinomial')
-logreg.fit(Xtrain, ytrain)
-
-# test
-y_pred = logreg.predict(Xtest)
-print ("Accuracy: %.2f %%" %(100*accuracy_score(ytest, y_pred.tolist())))
+#import numpy as np 
+#from mnist import MNIST
+#import matplotlib.pyplot as plt
+#from sklearn import linear_model
+#from sklearn.metrics import accuracy_score
+#
+#mntrain = MNIST('D:\\Minh\\Python\\MNIST')
+#mntrain.load_training()
+#Xtrain = np.asarray(mntrain.train_images)/255.0
+#ytrain = np.array(mntrain.train_labels.tolist())
+#
+#mntest = MNIST('D:\\Minh\\Python\\MNIST')
+#mntest.load_testing()
+#Xtest = np.asarray(mntest.test_images)/255.0
+#ytest = np.array(mntest.test_labels.tolist())
+#
+## train
+#logreg = linear_model.LogisticRegression(C=1e5, 
+#        solver = 'lbfgs', multi_class = 'multinomial')
+#logreg.fit(Xtrain, ytrain)
+#
+## test
+#y_pred = logreg.predict(Xtest)
+#print ("Accuracy: %.2f %%" %(100*accuracy_score(ytest, y_pred.tolist())))
